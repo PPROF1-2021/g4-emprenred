@@ -52,7 +52,7 @@ li > a {
 .login {
     border: solid 1px;
     padding: 10px 30px;
-    border-radius: 10%;
+    border-radius: 5px;
 }
 
 .login:hover {
@@ -73,6 +73,7 @@ main {
     margin: 0%;
     background-color: whitesmoke;
     margin: 0%;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* estilos main index*/
@@ -128,6 +129,61 @@ main {
     justify-content: center;
 }
 
+.cajaDeRegistro {
+    background-color: white;
+    box-shadow: 0 0 10px #9ecaed;
+    color: black;
+    border-radius: 15px;
+    width: 33%;
+    height: 85%;
+    padding: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cajaDeRegistro h4 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.cajaDeRegistro p {
+    height: 40px;
+    text-align: center;
+
+}
+
+.cajaDeRegistro a {
+    color: black;
+}
+
+.cajaDeRegistro a:hover {
+    color: indigo;
+}
+
+.registroForm .butReg {
+    background-color: #04ab84;
+    width: 100%;
+    padding:6px;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 12px;
+    color: white;
+}
+
+.registroForm .butReg:hover {
+    color: #03664f;
+    background-color: #c1def7;
+    font-weight: bold;
+}
+
+.controls {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
 .formulario {
     width: 80%;
     height: 60%;
@@ -137,9 +193,11 @@ main {
     align-items: center;
     color: black;
 }
+
 label {
     width: 40%;
 }
+
 .input {
     display: flex;
     justify-content: space-between;
@@ -149,6 +207,7 @@ label {
 input {
     width: 60%;
 }
+
 form {
     height: 90%;
     display: flex;
@@ -156,6 +215,7 @@ form {
     align-items: flex-start;
     justify-content: space-around;
 }
+
 .botones {
     display: flex;
     justify-content: space-around;
@@ -163,10 +223,11 @@ form {
     width: 100%;
     padding: 2% 0%;
 }
+
 .but1 {
     background-color: #04ab84;
     padding: 10px 15px;
-    border-radius: 10%;
+    border-radius: 5px;
     color: white;
     border: black;
 }

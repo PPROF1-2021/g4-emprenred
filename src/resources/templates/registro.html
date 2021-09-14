@@ -32,33 +32,35 @@
     </nav>
 </header>
 
+
       <main>
-    <form action="Mandá tu consulta">
-        <legend>Datos personales</legend>
-      <label for="Nombre">Nombre</label>
-      <input type="text"; name="Nombre">
-      <br>
-      <label for="Apellido">Apellido</label>
-      <input type="text"; name="Apellido">
-      <br>
-      <label for="Direccion">Dirección</label>
-      <input type="text"; name="Direccion">
-      <br>
-      <label for="Telefono">Telefono</label>
-      <input type="number"; name="Telefono">
-      <br>
-      <label for="Usuario">Usuario</label>
-      <input type="number" name="Usuario">
-      <br>
-      <label for="contraseña">Contraseña</label>
-      <input type="password" name="Contraseña">
-      
-      <br>
-      
-     <button type="submit">Registrarse</button>
-      
-      </form>
-    </main>
+        <div class="cajaDeRegistro">
+          <form action="registro.html" method="POST" class="registroForm">
+              <h4>Datos personales</h4>
+              <!--<label for="Nombre" >Nombre</label>-->
+              <input class="controls" type="text"; name="Nombre" placeholder="Ingrese su Nombre">
+              <!--<br>
+              <label for="Apellido">Apellido</label>-->
+              <input class="controls" type="text"; name="Apellido" placeholder="Ingrese su Apelllido">
+              <!--<br>
+              <label for="Direccion">Dirección</label>-->
+              <input class="controls" type="text"; name="Direccion" placeholder="Ingrese su Dirección">
+              <!--<br>
+              <label for="Telefono">Telefono</label>-->
+              <input class="controls" type="number"; name="Telefono" placeholder="Ingrese su Nro de Teléfono">
+              <!--<br>
+              <label for="Usuario">Usuario</label>-->
+              <input class="controls" type="number" name="Usuario" placeholder="Reservado para número de Usuario">
+              <!--<br>
+              <label for="contraseña">Contraseña</label>-->
+              <input class="controls" type="password" name="Contraseña" placeholder="Ingrese Contraseña">
+              <!--<br>-->
+              <p>Acuerdo de <a href="#">Términos y Condiciones</a></p>
+              <button type="submit" class="butReg">Registrarse</button>
+                    
+          </form>
+        </div>
+      </main>
       <footer> <small><em>EmprenRed - 2021</em></small>
         <h4>Copyright - Todos Los derechos Reservados 2021</h4>
         <p>Seguinos en nuestras <b>redes</b> </p>
