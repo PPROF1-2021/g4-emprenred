@@ -7,6 +7,8 @@
 body {
     height: 100vh;
 }
+
+/*estilos de navbar*/
 header {
     margin: 0%;
     height: 10%;
@@ -60,18 +62,20 @@ li > a {
     transform: scale(1.2);
 }
 
+/* Estilos main*/
 main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 80%;
+    height: 75%;
     margin: 0%;
     background-color: whitesmoke;
     margin: 0%;
 }
 
+/* Estilo formulario login*/
 .cajaDeIngreso {
     background-color: white;
     box-shadow: 0 0 10px #9ecaed;
@@ -84,8 +88,7 @@ main {
     align-items: center;
     justify-content: center;
 }
-.logo {
-}
+
 .formulario {
     width: 80%;
     height: 60%;
@@ -103,6 +106,7 @@ label {
     justify-content: space-between;
     width: 100%;
 }
+
 input {
     width: 60%;
 }
@@ -113,17 +117,35 @@ form {
     align-items: flex-start;
     justify-content: space-around;
 }
+.botones {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 2% 0%;
+}
 .but1 {
     background-color: #04ab84;
     padding: 10px 15px;
     border-radius: 10%;
     color: white;
+    border: black;
 }
+
+.but2 {
+    text-decoration: none;
+}
+
+/* estilos footer*/
 footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
     font-family: "Roboto", sans-serif;
-    color: whitesmoke;
+    color: rgb(121, 101, 101);
     background-color: #04ab84;
     width: 100%;
-    height: 10%;
+    height: 15%;
     margin: 0%;
 }
