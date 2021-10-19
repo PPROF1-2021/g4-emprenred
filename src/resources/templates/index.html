@@ -26,7 +26,7 @@
                 <div>
                     <li><a href="index.html">Inicio</a></li>
                     <li>
-                        <a href="contact.asp">Acerca de Nosotros</a>
+                        <a href="contact.asp">Buscar Emprendedores</a>
                     </li>
                 </div>
                 <li class="login"><a href="login.html">Login</a></li>
@@ -37,15 +37,48 @@
 
 <main>
     <div class="Flor">
-        <img class="foto"  src="../static/images/imagen1.jpg"
-        alt="HTML">
+        <div class="crearPublicacion">
+            <form action="summit">
+                <input type="text"
+                    placeholder="descripcion">
+                <input type="file"
+                    placeholder="suba la imagen">
+                <button>Publicar</button>
+            </form>
+        </div>
 
-        <div class="Ftexto">
+        <!--Son las publicaciones de los contactos que tiene el perfil-->
 
-        <h1><strong>EmprenRED</strong></h1>
+        <div class="publicaciones">
+            <p></p>
+            <!--nombre del emprendimiento-->
+            <p></p>
+            <!--fecha de publicacion-->
+            <p></p>
+            <!--descripcion-->
+            <img src=""
+                alt="">
+            <!--foto publicacion-->
 
-        <p><strong>Somos el puente entre emprendedores y clientes.</strong><br> Brindamos información de catálogos, recomendaciones, estados y actividad actualizada. <em>No dudes en visitarnos!</em></p>
-        <a class="but" href="registro.html">Registrarse aquí</a>
+            <div class="comentario">
+                <p></p>
+                <!--nombre del que creo comentario-->
+                <p></p>
+                <!--fecha de comentario-->
+                <p></p>
+                <!--descripcion de comentario-->
+            </div>
+
+            <div>
+                <form action="summit"
+                    class="crearComentario">
+                    <input type="text"
+                        placeholder="comentario">
+                    <button>Comentar</button>
+                </form>
+            </div>
+
+        </div>
         </div>
     </div>
 </main>
