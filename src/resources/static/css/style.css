@@ -1,7 +1,12 @@
-body {
-    height: 100vh;
-}
 
+main {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  footer{
+      height: 80px;
+      color: white;
+  }
 
 #logo-nav{
     width: 15%;
@@ -9,4 +14,13 @@ body {
 .campo{
    margin-right: 25px;
 
+}
+.iconos{
+    height: 50px;
+}
+.icono{
+    margin-left: 5px;
+}
+.text{
+    margin-right: 5px;
 }
