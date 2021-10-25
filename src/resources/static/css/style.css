@@ -1,7 +1,12 @@
-body {
-    height: 100vh;
-}
 
+main {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  footer{
+      height: 80px;
+      color: white;
+  }
 
 #logo-nav{
     width: 15%;
@@ -10,6 +15,7 @@ body {
    margin-right: 25px;
 
 }
+
 @media (max-width: 768px) {
     #social-sign-in .icon-5x {
         font-size: 7em;
@@ -63,4 +69,13 @@ body {
     font-size: 16px;
 }
 
+.iconos{
+    height: 50px;
+}
+.icono{
+    margin-left: 5px;
+}
+.text{
+    margin-right: 5px;
+}
 
