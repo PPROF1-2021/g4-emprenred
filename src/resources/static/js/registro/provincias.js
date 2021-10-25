@@ -1,5 +1,5 @@
 //Codigo a Ejecutar al Cargar la Pagina
-function myOnLoad() {
+function ProvinciasArgentinas() {
     cargar_provincias()
    }
    
