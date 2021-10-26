@@ -1,7 +1,7 @@
 
 main {
-    
-    margin-bottom: 100px;
+    margin-top: 70px;
+    margin-bottom: 70px;
   }
   footer{
       height: 80px;
@@ -11,25 +11,10 @@ main {
 #logo-nav{
     width: 15%;
 }
-
-.logo-nav-login {
-    width: 25%;
-    height: 25%;
-    padding-top: 1rem;
-}
-
 .campo{
    margin-right: 25px;
 
 }
-
-.flotante {
-    position: fixed;
-    bottom: 70px;
-    right: 30px;
-    z-index: 50000;
-
-  }
 
 @media (max-width: 768px) {
     #social-sign-in .icon-5x {
@@ -94,8 +79,16 @@ main {
     margin-right: 5px;
 }
 
-.perfil{
-padding:20px 0px !important;
-border-bottom-left-radius: 75%;
-border-bottom-right-radius: 75%;
+.iconos{
+    height: 50px;
 }
+.icono{
+    margin-left: 5px;
+}
+.text{
+    margin-right: 5px;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+  }

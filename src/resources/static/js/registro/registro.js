@@ -23,10 +23,13 @@ $('form').validate({
         password_confirmation: {
             required: true,
             equalTo: '#password'
-        }
+        },
+        handle: {
+            required: true
+        },
     },
     highlight: function(element) {
-        $(element).closest('.input-group').addClass('has-error');
+        $(element).closest('.input-group').addClass("'has-error'");
     },
     unhighlight: function(element) {
         $(element).closest('.input-group').removeClass('has-error');
