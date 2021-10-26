@@ -11,6 +11,13 @@ main {
 #logo-nav{
     width: 15%;
 }
+
+.logo-nav-login {
+    width: 25%;
+    height: 25%;
+    padding-top: 1rem;
+}
+
 .campo{
    margin-right: 25px;
 
