@@ -1,7 +1,7 @@
 
 main {
-    margin-top: 70px;
-    margin-bottom: 70px;
+    
+    margin-bottom: 100px;
   }
   footer{
       height: 80px;
@@ -15,10 +15,15 @@ main {
    margin-right: 25px;
 
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> 6d9b45d4535320d1a60993ebcb3f05ff11da2244
+.flotante {
+    position: fixed;
+    bottom: 70px;
+    right: 30px;
+    z-index: 50000;
+
+  }
+
 @media (max-width: 768px) {
     #social-sign-in .icon-5x {
         font-size: 7em;
@@ -82,15 +87,8 @@ main {
     margin-right: 5px;
 }
 
-<<<<<<< HEAD
-.iconos{
-    height: 50px;
+.perfil{
+padding:20px 0px !important;
+border-bottom-left-radius: 75%;
+border-bottom-right-radius: 75%;
 }
-.icono{
-    margin-left: 5px;
-}
-.text{
-    margin-right: 5px;
-}
-=======
->>>>>>> 6d9b45d4535320d1a60993ebcb3f05ff11da2244
