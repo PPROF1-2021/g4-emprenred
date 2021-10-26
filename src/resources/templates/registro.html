@@ -11,14 +11,37 @@
     crossorigin="anonymous">
 <link rel="stylesheet" href="../static/css/style.css">
     <link rel="icon" type="image/vnd.microsoft.icon" href="../static/iconos/favicon.ico">
+
+    <style>
+      body {
+        background-image: url("../static/images/startup.jpg") ;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+
+      ;
+      }
+      #content {
+    position: absolute;
+    bottom: 72px; left: 72px;
+    width: 300px;
+    height: 100px;
+}    
+
+#contentContainessr {
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+      </style>
+
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
       <div class="container-fluid">
           <a class="navbar-brand "  href="index.html"><img  id="logo-nav"src="../static/images/Logo_Rectangular.png"
-              alt="Logo EmprenRed" /></a>        
+              alt="Logo EmprenRed" /></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -41,14 +64,12 @@
       </div>
   </nav>
 </header>
-      <main>
-        
-        <div id="contentContainer" class=" col-5 d-flex justify-content-between container border border-warning mt-5 " >
-          <div class="row" >
+      <main>      
+        <div id="contentContainer" class=" col-6 d-flex justify-content-center container border border-warning mt-5 " style="background-color:whitesmoke; " > 
+          <div class="row" > 
             <div id="realContent" class="col-xs-12">
               <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0  ">
-                  <h1>Registro</h1>
                 </div>
               </div>
               <div class="row">
@@ -57,7 +78,7 @@
                     <div class="row">
                       <div class="col-sm-6 col-xs-12">
                         <div class="row">
-                          <div class="col-xs-12">
+                          <div class="col-xs-12"> <br><br>
                             <h3>¡Bienvenid@!</h3></div>
                         </div>
                         <div class="row">
@@ -78,24 +99,25 @@
                         <div class="row">
                           <div class="col-xs-12">
                             <form id="signupForm" method="post" accept-charset="UTF-8" validate>
+                              <br><br><br>
                               <div class="input-group">
                                 <span class="input-group-addon"><i class="fa fa-user-secret icon-2x"></i></i></span>
                                 <input id="name" class="form-control input-lg" placeholder="Nombre y Apellido(s)" maxlength="100" type="text" name="name">
                               </div>
                               <div class="input-group">
-                                <span class="input-group-addon"><i class="icon-user icon-2x"></i></span>
+                                <span class="input-group-addon"><i class="fas fa-user icon-2x"></i></i></span>
                                 <input id="handle" class="form-control input-lg" placeholder="Nombre de Usuario" maxlength="100" type="text" name="handle">
                               </div>
                               <div class="input-group">
-                                <span class="input-group-addon"><i class="icon-envelope icon-2x"></i></span>
+                                <span class="input-group-addon"><i class="fas fa-envelope icon-2x"></i></span> 
                                 <input id="email" class="form-control input-lg" placeholder="Email" maxlength="100" type="email" name="email" validate>
                               </div>
                               <div class="input-group">
-                                <span class="input-group-addon"><i class="icon-asterisk icon-2x"></i></span>
+                                <span class="input-group-addon"><i class="fas fa-key icon-2x"></i></span>
                                 <input id="password" class="form-control input-lg" placeholder="Contraseña" maxlength="60" type="password" name="password">
                               </div>
                               <div class="input-group">
-                                <span class="input-group-addon"><i class="icon-asterisk icon-2x"></i></span>
+                                <span class="input-group-addon"><i class="fas fa-key icon-2x"></i></span>
                                 <input id="password_confirmation" class="form-control input-lg" placeholder="Confirme Contraseña" maxlength="60" type="password" name="password_confirmation">
                               </div>
                               <div class="form-group">
@@ -103,7 +125,7 @@
                               </div>
                               <div class="form-group">
                                 <button type="submit" id="btn-signup" class="btn btn-sm btn-warning my-2 ms-1">Registrar</button>
-                              </div> 
+                              </div>
                             </form>
                             <div class="form-group">
                               <div class="topCushion">Ya tenés cuenta? <a href="#">Ingresá acá</a></div>
