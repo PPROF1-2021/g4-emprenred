@@ -223,9 +223,9 @@
                         <!-- /.col-xs-12 -->
 
                         <form class="needs-validation"
+                          id="formulario"
                           action=""
                           method="post"
-                          onsubmit="return validar();"
                           novalidate>
                           <div id="nombreDiv">
                             <span class="input-group-addon"><i class="fa fa-user icon-2x"></i></span>
@@ -235,7 +235,10 @@
                               name="nombre"
                               type="text"
                               class="form-control"
-                              required>
+                              required
+                              onfocusout="checklargo(this, 2)"
+                              minlength="3"
+                              maxlength="20">
                             <div class="invalid-feedback">
                               Por favor complete el campo.
                             </div>
@@ -415,6 +418,7 @@
               event.preventDefault();
               event.stopPropagation();
             }
+
 
             form.classList.add("was-validated");
           },
