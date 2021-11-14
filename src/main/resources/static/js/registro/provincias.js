@@ -1,4 +1,4 @@
-//Codigo a Ejecutar al Cargar la Pagina
+//funciones para provicnias
 function ProvinciasArgentinas() {
     cargar_provincias();
 }
@@ -7,7 +7,7 @@ function ProvinciasArgentinas() {
 function cargar_provincias() {
     var array = ["Buenos Aires", "Buenos Aires Capital", "Catamarca", "Chaco", "Chubut", "Cordoba", "Corrientes", "Entre Rios", "Formosa", "Jujuy", "La Pampa", "La Rioja", "Mendoza", "Misiones", "Neuquen", "Rio Negro", "Salta", "San Juan", "San Luis", "Santa Cruz", "Santa Fe", "Santiago del Estero", "Tierra del Fuego", "Tucuman"];
 
-    // Ordena el Array Alfabeticamente, es muy facil ;)):
+    // Ordena el Array Alfabeticamente
     array.sort();
 
     addOptions("provincias", array);
@@ -27,54 +27,39 @@ function addOptions(domElement, array) {
 
 // validacion form registro
 
-const formulario = document.getElementById("formulario");
-const inputs = document.querySelectorAll("#formulario input");
-
-const expresiones = {
-    usuario: /^[a-zA-Z0-9\_\-]{4,16}$/, // Letras, numeros, guion y guion_bajo
-    nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    password: /^.{4,12}$/, // 4 a 12 digitos.
-    correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-};
-const campos = {
-    usuario: false,
-    nombre: false,
-    password: false,
-    correo: false,
-    telefono: false,
-};
-
-function validar() {
-    var nombre, apellido, provincias, fechaNac, email, password, password2;
-    nombre = document.getElementById("nombre");
-    apellido = document.getElementById("apellido");
-    provincias = document.getElementById("provincia");
-    fechaNac = document.getElementById("nombre");
-    email = document.getElementById("email");
-    password = document.getElementById("password");
-    password2 = document.getElementById("passwprd2");
-    var nombreDiv = document.getElementById("nombreDiv");
-    let p = document.createElement("p");
-
-    if (nombre.value.length < 2 && nombre.value.length > 30) {
-        p.innerText = "el nombre debe tener como minimo dos letras y como maximo 30 letras";
-        nombreDiv.appendChild(p);
-        return false;
-    }
-}
-
-function checklargo(campo, min) {
+function validar(campo, min, max) {
     var palabra = campo.value;
     // Crear mensaje, en blanco para valor correcto
     let validity = campo.validity;
     var msg = "";
 
-    if (validity.tooShort) {
-        alert("muy corto");
+    if (validity.tooShort || validity.tooLong) {
+        alert("El campo debe tener entre " + min + " y " + max + " caracteres.");
         //msg = "Excede el largo permitido";
     }
+
+    if (validity.patternMismatch) {
+        if (campo.name == "contrasenia") {
+            alert(" La contraseña debe tener al menos una letra en mayuscula, una letra en minuscula y un numero ");
+        } else {
+            alert("Formato del campo incorrecto");
+        }
+    }
+
     campo.reportValidty();
 }
 
-formulario.addEventListener("submit", validar);
+function validarContrasenia2(campo1, campo2) {
+    let contrasenia = document.getElementById(campo1);
+
+    let regex = contrasenia.value.toString();
+    console.log(campo2.value);
+    campo2.setAttribute("pattern", regex);
+    let validity = campo2.validity;
+
+    if (validity.patternMismatch) {
+        alert("Las dos Contraseñas debe coincidir");
+    }
+
+    campo2.reportValidty();
+}

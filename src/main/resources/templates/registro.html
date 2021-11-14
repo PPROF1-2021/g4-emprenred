@@ -29,7 +29,7 @@
       background-attachment: fixed;
       background-size: 100% 100%;
 
-      ;
+
     }
 
     #content {
@@ -40,9 +40,10 @@
       height: 100px;
     }
 
-    #contentContainessr {
-      -webkit-filter: blur(10px);
-      filter: blur(10px);
+    #contentContainer {
+      padding: 50px;
+
+
     }
   </style>
 
@@ -95,6 +96,7 @@
       </div>
     </nav>
   </header>
+
   <main>
     <div id="contentContainer"
       class=" col-6 d-flex justify-content-center container border border-warning mt-5 "
@@ -135,96 +137,9 @@
                     <div class="row">
                       <div class="col-xs-12">
 
-                        <!-- <form id="signupForm"
-                          method="post"
-                          accept-charset="UTF-8"
-                          validate>
-                          <br><br><br>
-                          <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user-secret icon-2x"></i></i></span>
-                            <input id="name"
-                              class="form-control input-lg"
-                              placeholder="Nombre"
-                              maxlength="100"
-                              type="text"
-                              name="name">
-                          </div>
-
-                          <div class="input-group">
-                            <span class="input-group-addon"><i class="fas fa-user icon-2x"></i></i></span>
-                            <input id="lastname"
-                              class="form-control input-lg"
-                              placeholder="Apellido"
-                              maxlength="100"
-                              type="text"
-                              name="lastname">
-                          </div>
-                          <div class="input-group">
-                            <span class="input-group-addon"><i class="fa fa-user-secret icon-2x"></i></i></span> <br><br>
-
-                            <body onLoad="ProvinciasArgentinas()"
-                              validate>
-                              <select name="provincia">
-                                <option>Seleccione una Provincia...</option>
-                              </select>
-                          </div>
-                          <div class="input-group">
-                            <span class="input-group-addon"><i class="fas fa-user icon-2x"></i></i></span>
-                            <input id="handle"
-                              class="form-control input-lg"
-                              placeholder="Fecha de nacimiento"
-                              maxlength="100"
-                              type="date"
-                              name="fechaNacimiento">
-                          </div>
-
-                          <div class="input-group">
-                            <span class="input-group-addon"><i class="fas fa-envelope icon-2x"></i></span>
-                            <input id="email"
-                              class="form-control input-lg"
-                              placeholder="Email"
-                              maxlength="100"
-                              type="email"
-                              name="email"
-                              validate>
-                          </div>
-                          <div class="input-group">
-                            <span class="input-group-addon"><i class="fas fa-key icon-2x"></i></span>
-                            <input id="password"
-                              class="form-control input-lg"
-                              placeholder="Contraseña"
-                              maxlength="60"
-                              type="password"
-                              name="password">
-                          </div>
-                          <div class="input-group">
-                            <span class="input-group-addon"><i class="fas fa-key icon-2x"></i></span>
-                            <input id="password_confirmation"
-                              class="form-control input-lg"
-                              placeholder="Confirme Contraseña"
-                              maxlength="60"
-                              type="password"
-                              name="password_confirmation">
-                          </div>
-                          <div class="form-group">
-                            <div class="g-recaptcha"
-                              data-sitekey="6LdJRxETAAAAABZT0MUNO1r5at_-JuSGeAPTqIM6"></div>
-                          </div>
-                          <div class="form-group">
-                            <button type="submit"
-                              id="btn-signup"
-                              class="btn btn-sm btn-warning my-2 ms-1">Registrar</button>
-                          </div>
-                        </form>
-                        <div class="form-group">
-                          <div class="topCushion">Ya tenés cuenta? <a href="#">Ingresá acá</a></div>
-                        </div>
-                      </div>-->
-                        <!-- /.col-xs-12 -->
-
                         <form class="needs-validation"
                           id="formulario"
-                          action=""
+                          action="envio-contacto.php"
                           method="post"
                           novalidate>
                           <div id="nombreDiv">
@@ -236,11 +151,12 @@
                               type="text"
                               class="form-control"
                               required
-                              onfocusout="checklargo(this, 2)"
-                              minlength="3"
-                              maxlength="20">
+                              onfocusout="validar(this, 2,30)"
+                              minlength="2"
+                              maxlength="30"
+                              pattern="[A-Za-z].{2,}">
                             <div class="invalid-feedback">
-                              Por favor complete el campo.
+                              Por favor complete correctamente el campo.
                             </div>
                           </div>
                           <div class="apellido">
@@ -251,10 +167,14 @@
                             <input type="text"
                               name="apellido"
                               class="form-control"
+                              onfocusout="validar(this, 2,30)"
+                              minlength="2"
+                              maxlength="30"
+                              pattern="[A-Za-z].{2,}"
                               id="apellido"
                               required>
                             <div class="invalid-feedback">
-                              Por favor complete el campo.
+                              Por favor complete correctamente el campo.
                             </div>
 
                           </div>
@@ -267,6 +187,7 @@
                                 class="form-label">Provincia</label>
                               <select class="form-select"
                                 id="provincias"
+                                name="provincia"
                                 required>
                                 <option selected
                                   disabled
@@ -274,7 +195,7 @@
 
                               </select>
                               <div class="invalid-feedback">
-                                Por favor complete el campo.
+                                Por favor complete correctamente el campo.
                               </div>
                           </div>
 
@@ -288,7 +209,7 @@
                               id="fechaNac"
                               required>
                             <div class="invalid-feedback">
-                              Por favor complete el campo.
+                              Por favor complete correctamente el campo.
                             </div>
                           </div>
                           <div class="email">
@@ -296,12 +217,16 @@
                             <label for="validationTooltip01"
                               class="form-label">Email</label>
                             <input id="email"
-                              name="nombre"
+                              name="email"
                               type="email"
                               class="form-control"
+                              onfocusout="validar(this, 2,30)"
+                              minlength="2"
+                              maxlength="30"
+                              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                               required>
                             <div class="invalid-feedback">
-                              Por favor complete el campo.
+                              Por favor complete correctamente el campo.
                             </div>
                           </div>
 
@@ -310,12 +235,16 @@
                             <label for="validationTooltip01"
                               class="form-label">Contraseña</label>
                             <input id="password"
-                              name="nombre"
+                              name="contrasenia"
                               type="password"
                               class="form-control"
+                              onfocusout="validar(this, 8,15)"
+                              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                              minlength="8"
+                              maxlength="15"
                               required>
                             <div class="invalid-feedback">
-                              Por favor complete el campo.
+                              Por favor complete correctamente el campo.
                             </div>
                           </div>
 
@@ -324,12 +253,13 @@
                             <label for="validationTooltip01"
                               class="form-label">Confirme Contraseña </label>
                             <input id="password2"
-                              name="passwprd2"
+                              name="contrasenia2"
+                              onfocusout="validarContrasenia2('password',this)"
                               type="password"
                               class="form-control"
                               required>
                             <div class="invalid-feedback">
-                              Por favor complete el campo.
+                              Por favor complete correctamente el campo.
                             </div>
                           </div>
 
@@ -372,18 +302,19 @@
                   <!-- /.row -->
                 </div>
                 <!-- /.well well-lg -->
+              </div>
+              <!-- /.col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0 -->
             </section>
-            <!-- /.col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1 col-xs-12 col-sm-offset-0 -->
+            <!-- /.row -->
           </div>
-          <!-- /.row -->
+          <!-- /#realContent -->
         </div>
-        <!-- /#realContent -->
+        <!-- /.row -->
       </div>
-      <!-- /.row -->
+      <!-- /#contentContainer -->
     </div>
-    <!-- /#contentContainer -->
-
   </main>
+
   <footer class="footer py-3 bg-dark fixed-bottom d-flex justify-content-center align-items-center ">
     <div class=" text ">
       <p>EmprenRed - 2021</p>
