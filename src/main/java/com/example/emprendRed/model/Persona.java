@@ -5,8 +5,9 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -15,65 +16,49 @@ import javax.persistence.TemporalType;
 @Table (name = "Personas")
 public class Persona implements Serializable {
    
+   
     @Id
-    private String dni;
-    
-    @Column(name="tipo_de_dni") 
-    private String tipoDeDni;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     
     private String nombre;
     
     private String apellido;
     
-    private String telefono;
+    private String localidad;
     
-    private String email;
-    
+    @Temporal(TemporalType.DATE)
+    private Date fechaNac;
+         
+    @Column (name="fecha_de_baja")
     @Temporal(TemporalType.DATE)
     private Date fechaDeBaja;
 
-    public Date getFechaDeBaja() {
-        return fechaDeBaja;
-    }
-
-    public void setFechaDeBaja(Date fechaDeBaja) {
-        this.fechaDeBaja = fechaDeBaja;
-    }
-    
-    @Column (name = "usuario_id")
-    private Integer usuarioId;
-    
-    
+       
 
     public Persona() {
     }
 
-    public Persona(String dni, String tipoDeDni, String nombre, String apellido, String telefono, String email) {
-        this.dni = dni;
-        this.tipoDeDni = tipoDeDni;
+    public Persona(Long id, String nombre, String apellido, Date fechaNac, Date fechaDeBaja) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.telefono = telefono;
-        this.email = email;
+        this.fechaNac = fechaNac;
+        this.fechaDeBaja = fechaDeBaja;
+        
     }
 
-    public String getDni() {
-        return dni;
+    public Long getId() {
+        return id;
     }
 
-    public void setDni(String dni) {
-        this.dni = dni;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public String getTipoDeDni() {
-        return tipoDeDni;
-    }
-
-    public void setTipoDeDni(String tipoDeDni) {
-        this.tipoDeDni = tipoDeDni;
-    }
-
-    public String getNombre() {
+  
+     public String getNombre() {
         return nombre;
     }
 
@@ -89,29 +74,31 @@ public class Persona implements Serializable {
         this.apellido = apellido;
     }
 
-    public String getTelefono() {
-        return telefono;
+      public Date getFechaDeBaja() {
+        return fechaDeBaja;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setFechaDeBaja(Date fechaDeBaja) {
+        this.fechaDeBaja = fechaDeBaja;
     }
 
-    public String getEmail() {
-        return email;
+    public Date getFechaNac() {
+        return fechaNac;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setFechaNac(Date fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
-    public Integer getUsuarioId() {
-        return usuarioId;
+   
+    public String getLocalidad() {
+        return localidad;
     }
 
-    public void setUsuarioId(Integer usuarioId) {
-        this.usuarioId = usuarioId;
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
     }
+    
     
     
     
