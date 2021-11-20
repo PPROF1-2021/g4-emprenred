@@ -45,23 +45,19 @@ function validar(campo, min, max) {
             alert("Formato del campo incorrecto");
         }
     }
-
-    campo.reportValidty();
 }
 
 function validarContrasenia2(campo1, campo2) {
     let contrasenia = document.getElementById(campo1);
 
     let regex = contrasenia.value.toString();
-    console.log(campo2.value);
+
     campo2.setAttribute("pattern", regex);
     let validity = campo2.validity;
 
     if (validity.patternMismatch) {
         alert("Las dos Contraseñas debe coincidir");
     }
-
-    campo2.reportValidty();
 }
 
 function calculateAge(fechaNac) {
@@ -83,6 +79,75 @@ function agregarEdad(fechaNac, campo) {
     console.log(edadCampo);
     edadCampo.innerText = calculateAge(fechaNac);
 }
+// funcion modal
+//var myModal = new bootstrap.Modal(document.getElementById("myModal"), options);
 
-var myModal = new bootstrap.Modal(document.getElementById("myModal"), options);
-let regex = /g[0-9]/;
+//funcion Post registro
+async function register() {
+    let [nombre, apellido, provincias, fechaNac, email, password] = [document.getElementById("nombre"), document.getElementById("apellido"), document.getElementById("provincias"), document.getElementById("fechaNac"), document.getElementById("email"), document.getElementById("password")];
+
+    let data = {
+        nombre: nombre.value,
+        apellido: apellido.value,
+        localidad: provincias.value,
+        fechaNac: fechaNac.value,
+        email: email.value,
+        contraseña: password.value,
+    };
+
+    axios
+        .post("http://localhost:8080/registro", data)
+        .then(function (response) {
+            alert(response.data);
+            window.location.href = "login.html";
+        })
+        .catch(function (error) {
+            console.log(error.response.data);
+            alert(error.response.data.message);
+        });
+
+    /* if (post.data != "se registro correctamente") {
+        alert(post.data);
+    } */
+
+    /*let post = await fetch("http://localhost:8080/registro", {
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(data),
+    });
+
+    let response = await post.json();*/
+}
+
+//funcion post login
+
+async function login() {
+    let [username, password] = [document.getElementById("username"), document.getElementById("password")];
+
+    let data = {
+        username: username.value,
+        password: password.value,
+    };
+
+    axios
+        .post("http://localhost:8080/login", data)
+        .then((response) => {
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("id", response.data.id);
+            this.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
+
+            window.location.href = "perfil.html";
+        })
+        .catch((error) => {
+            alert(error.response.data.message);
+        });
+}
+
+function logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("id");
+    window.location.href = "login.html";
+}

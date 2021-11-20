@@ -22,6 +22,8 @@
     type="image/vnd.microsoft.icon"
     href="../static/iconos/favicon.ico">
 
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <style>
     body {
       background-image: url("../static/images/startup.jpg");
@@ -139,8 +141,6 @@
 
                         <form class="needs-validation"
                           id="formulario"
-                          action="envio-contacto.php"
-                          method="post"
                           novalidate>
                           <div id="nombreDiv">
                             <span class="input-group-addon"><i class="fa fa-user icon-2x"></i></span>
@@ -247,10 +247,10 @@
                             <label for="validationTooltip01"
                               class="form-label">Contraseña</label>
                             <input id="password"
-                              name="contrasenia"
+                              name="password"
                               type="password"
                               class="form-control"
-                              onfocusout="validar(this, 8,15)"
+                              onfocusout="validar(this,8,15)"
                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                               minlength="8"
                               maxlength="15"
@@ -275,29 +275,12 @@
                             </div>
                           </div>
 
-                          <div class="">
-                            <div class="form-check">
-                              <input class="form-check-input"
-                                type="checkbox"
-                                value=""
-                                id="invalidCheck"
-                                required>
-                              <label class="form-check-label"
-                                for="invalidCheck">
-                                Agree to terms and conditions
-                              </label>
-                              <div class="invalid-feedback">
-                                Debe aceptar termino y condiciones
-                              </div>
-                            </div>
-                            <div class="g-recaptcha"
-                              data-sitekey="6LdJRxETAAAAABZT0MUNO1r5at_-JuSGeAPTqIM6"></div>
 
 
-                          </div>
                           <div class="">
                             <input class="btn btn-primary"
-                              type="submit"
+                              type="button"
+                              onclick="register()"
                               value="Reguistrarse">
                           </div>
                         </form>
