@@ -14,10 +14,20 @@ public class JwtDto {
     private String token;
     private String bearer = "Bearer";
     private String username;
+    private Long id;
 
-    public JwtDto(String jwt, String username) {
+    public JwtDto(String jwt, String username, Long id) {
         this.token=jwt;
         this.username=username;
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getToken() {
