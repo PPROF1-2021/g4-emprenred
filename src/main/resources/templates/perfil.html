@@ -286,7 +286,8 @@
           let bienvenida = document.getElementById("bienvenida");
           bienvenida.textContent = "Bienvenid@ " + response.data.nombre + " " + response.data.apellido;
 
-
+          localStorage.setItem ("nombre", response.data.nombre + " " + response.data.apellido);
+          
         }).catch((error) => {
           window.location.href = "login.html";
         });

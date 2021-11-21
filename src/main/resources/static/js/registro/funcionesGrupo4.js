@@ -149,5 +149,28 @@ async function login() {
 function logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("id");
+    localStorage.removeItem("nombre");
     window.location.href = "login.html";
+}
+
+function agregarNombreMenu(){
+ let nombre = localStorage.getItem("nombre");
+
+ let menu = document.getElementById("menuNombre");
+ menu.textContent = nombre;
+}
+
+function validaSiEstaLogueado(){
+
+    if (localStorage.getItem("token") != null) {
+        let menu = document.getElementById("menuSinNombre");
+        menu.classList.add("hide");
+
+        console.log(menu.classList)
+
+        
+    }else{
+        let menu = document.getElementById("menuNombre");
+        menu.classList.add("hide");
+    }
 }
