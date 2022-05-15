@@ -1,8 +1,8 @@
 <?php
-$host="localhost";
+$host="localhost:3306";
 $usuario="root";
-$clave="";
-$db="emprenred_php";
+$clave="admin";
+$db="emprenred";
 
 $conn = new mysql($host,$usuario,$clave,$db);
     mysql_query($conn,"SET character_set_result=utf8");

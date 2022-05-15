@@ -35,14 +35,17 @@ function validar(campo, min, max) {
 
     if (validity.tooShort || validity.tooLong) {
         alert("El campo debe tener entre " + min + " y " + max + " caracteres.");
-        //msg = "Excede el largo permitido";
+       var msg = "Excede el largo permitido";
+       return;
     }
 
     if (validity.patternMismatch) {
         if (campo.name == "contrasenia") {
             alert(" La contraseña debe tener al menos una letra en mayuscula, una letra en minuscula y un numero ");
+            setTimeout(function() { document.getElementById("2").focus(); }, 100);
         } else {
             alert("Formato del campo incorrecto");
+            setTimeout(function() { document.getElementById("2").focus(); }, 100);
         }
     }
 }
@@ -125,25 +128,28 @@ async function register() {
 //funcion post login
 
 async function login() {
-    let [username, password] = [document.getElementById("username"), document.getElementById("password")];
+    try {
+        let [username, password] = [document.getElementById("username"), document.getElementById("password")];
 
-    let data = {
-        username: username.value,
-        password: password.value,
-    };
+        let data = {
+            username: username.value,
+            password: password.value,
+        };
 
-    axios
-        .post("http://localhost:8080/login", data)
-        .then((response) => {
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem("id", response.data.id);
-            this.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
+        axios
+            .post("http://localhost:8080/login", data)
+            .then((response) => {
+                localStorage.setItem("token", response.data.token);
+                localStorage.setItem("id", response.data.id);
+                this.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
 
-            window.location.href = "perfil.html";
-        })
-        .catch((error) => {
-            alert(error.response.data.message);
-        });
+                window.location.href = "perfil.html";
+            })
+
+
+}catch(err) {
+        console.log("err->", err.response.data)
+        }
 }
 
 function logout() {
