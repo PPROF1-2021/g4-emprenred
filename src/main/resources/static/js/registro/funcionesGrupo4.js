@@ -35,17 +35,14 @@ function validar(campo, min, max) {
 
     if (validity.tooShort || validity.tooLong) {
         alert("El campo debe tener entre " + min + " y " + max + " caracteres.");
-       var msg = "Excede el largo permitido";
-       return;
+        //msg = "Excede el largo permitido";
     }
 
     if (validity.patternMismatch) {
         if (campo.name == "contrasenia") {
             alert(" La contraseña debe tener al menos una letra en mayuscula, una letra en minuscula y un numero ");
-            setTimeout(function() { document.getElementById("2").focus(); }, 100);
         } else {
             alert("Formato del campo incorrecto");
-            setTimeout(function() { document.getElementById("2").focus(); }, 100);
         }
     }
 }
@@ -128,28 +125,33 @@ async function register() {
 //funcion post login
 
 async function login() {
-    try {
-        let [username, password] = [document.getElementById("username"), document.getElementById("password")];
+    let [username, password] = [document.getElementById("username"), document.getElementById("password")];
 
-        let data = {
-            username: username.value,
-            password: password.value,
-        };
+    let data = {
+        username: username.value,
+        password: password.value,
+    };
 
-        axios
-            .post("http://localhost:8080/login", data)
-            .then((response) => {
-                localStorage.setItem("token", response.data.token);
-                localStorage.setItem("id", response.data.id);
-                this.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
-
-                window.location.href = "perfil.html";
-            })
-
-
-}catch(err) {
-        console.log("err->", err.response.data)
-        }
+    axios
+        .post("http://localhost:8080/login", data)
+        .then((response) => {
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("id", response.data.id);
+            this.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
+            Swal.fire(
+                'Ingreso Satisfactorio',
+                'Redirigiendose al Perfil...',
+                'success'
+              )
+            window.location.href = "perfil.html";
+        })
+        .catch((error) => {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error en el Logueo',
+                text: 'Revise su Email y/o Contraseña y vuelva a intentarlo'
+              })
+        });
 }
 
 function logout() {
