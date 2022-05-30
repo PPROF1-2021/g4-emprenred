@@ -143,7 +143,7 @@ public class AppService implements UserDetailsService{
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(usuario.getUsername(), usuario.getPassword()));
         } catch (BadCredentialsException e) {
-            throw new Exception ("error al loguerse");
+            throw new UsernameNotFoundException ("Error de Login");
         }
 
        String jwt = jwtUtils.generateToken(loadUserByUsername(usuario.getUsername()));
