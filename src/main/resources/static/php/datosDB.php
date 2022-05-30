@@ -1,7 +1,7 @@
 <?php
 $host="localhost";
 $usuario="root";
-$clave="";
+$clave="admin";
 $db="emprenred_php";
 
 $conn = new mysql($host,$usuario,$clave,$db);

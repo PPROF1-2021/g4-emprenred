@@ -138,11 +138,19 @@ async function login() {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("id", response.data.id);
             this.axios.defaults.headers.common["Authorization"] = "Bearer " + localStorage.getItem("token");
-
+            Swal.fire(
+                'Ingreso Satisfactorio',
+                'Redirigiendose al Perfil...',
+                'success'
+              )
             window.location.href = "perfil.html";
         })
         .catch((error) => {
-            alert(error.response.data.message);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error en el Logueo',
+                text: 'Revise su Email y/o Contraseña y vuelva a intentarlo'
+              })
         });
 }
 

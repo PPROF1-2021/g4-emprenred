@@ -50,6 +50,30 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>com.microsoft.sqlserver.msi</groupId>
+			<artifactId>msi-mssql-jdbc</artifactId>
+			<version>2.0.3</version>
+
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+
+
+		</dependency>
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-ri</artifactId>
+			<version>2.3.3</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -57,6 +81,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.6.7</version>
 			</plugin>
 		</plugins>
 	</build>

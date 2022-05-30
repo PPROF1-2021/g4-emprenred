@@ -4,8 +4,6 @@ package com.example.emprendRed;
 import com.example.emprendRed.Jwt.JwtEntryPoint;
 import com.example.emprendRed.Jwt.JwtTokenFilter;
 import com.example.emprendRed.service.AppService;
-import java.util.Arrays;
-import javafx.util.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,46 +32,46 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
-    
+
     @Autowired
     private JwtEntryPoint jwtEntryPoint;
-    
+
     @Autowired
     private AppService userService;
-    
+
     @Bean
     public BCryptPasswordEncoder encoder(){
         return new BCryptPasswordEncoder();
     }
-    
-    
+
+
     @Override
     public void configure (AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService).passwordEncoder(encoder());
     }
-    
+
     @Override
     public void configure(HttpSecurity http) throws Exception{
-       http 
-               .cors(withDefaults())
-               .csrf().disable()
-               .httpBasic()
-               .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-               .and()
-               .authorizeRequests()
-               .antMatchers("static/**").permitAll()
-               .antMatchers("/").permitAll()
-               .antMatchers("/registro").permitAll()
-               .antMatchers("/login").permitAll()
-               .anyRequest().authenticated()
-               .and().addFilterBefore(jwtTokenFilter(),UsernamePasswordAuthenticationFilter.class);
-        
+        http
+                .cors(withDefaults())
+                .csrf().disable()
+                .httpBasic()
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers("static/**").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers("/registro").permitAll()
+                .antMatchers("/login").permitAll()
+                .anyRequest().authenticated()
+                .and().addFilterBefore(jwtTokenFilter(),UsernamePasswordAuthenticationFilter.class);
+
     }
     @Bean
     public JwtTokenFilter jwtTokenFilter(){
         return new JwtTokenFilter();
     }
-    
+
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -84,17 +82,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManager();
     }
-    
-     @Bean
+
+    @Bean
     public UserDetailsService userDetailsService() {
         return super.userDetailsService();
     }
-    
+
 //    @Bean
 // CorsConfigurationSource corsConfigurationSource() {
 //  CorsConfiguration cc = new CorsConfiguration();
 //                cc.setAllowedHeaders(Arrays.asList("Origin,Accept", "X-Requested-With", "Content-Type", "Access-Control-Request-Method", "Access-Control-Request-Headers","Authorization"));
-//                cc.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));                
+//                cc.setExposedHeaders(Arrays.asList("Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"));
 //  cc.setAllowedOrigins(Arrays.asList("http://localhost:5500"));
 //  cc.setAllowedMethods(Arrays.asList("GET", "POST", "OPTIONS", "PUT","PATCH"));
 //                cc.addAllowedOrigin("http://localhost:5500");
@@ -104,5 +102,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //  source.registerCorsConfiguration("/**", cc);
 //  return source;
 // }
-//    
+//
 }
